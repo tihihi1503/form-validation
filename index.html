@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="main">
+        <form action="" class="form" id="form-1">
+            <div class="heading">
+                <h3 class="margin">Đăng Ký Thành Viên</h3>
+                <p class="margin">Đây Là Bài Tập Thực Hành Của Mình</p>
+            </div>
+            <div class="space"></div>
+            <div class="form-group margin">
+                <label for="fullname">Tên Đầy Đủ:</label>
+                <input name="fullname" type="text" id="fullname" class="form-control" placeholder="Vd: Lê Quốc Phú">
+                <span class="form-message"></span>
+            </div>
+            <div class="form-group margin">
+                <label for="email">Email:</label>
+                <input name="email" type="email" id="email" class="form-control" placeholder="Your Email">
+                <span class="form-message"></span>
+            </div>
+            <div class="form-group margin">
+                <label for="password">Your Password:</label>
+                <input name="password" type="password" id="password" class="form-control" placeholder="Password">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group margin">
+                <label for="password-confirm">Confirm Password:</label>
+                <input name="password-confirm" type="password" id="password-confirm" class="form-control"
+                    placeholder="Password">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group margin gender">
+                <label for="gender">Giới tính</label>
+                <div class="input-gender">
+                    <input type="checkbox" name="gender" value="female" >Nữ
+                </div>
+                <div class="input-gender">
+                    <input type="checkbox" name="gender" value="male" >Nam
+                </div>
+                <div class="input-gender">
+                    <input type="checkbox" name="gender" value="orther" id="">Khác
+                </div>
+                <span class="form-message"></span>
+            </div>
+
+
+            <button class="form-submit">Đăng Ký</button>
+        </form>
+    </div>
+    <script src="./validation.js"></script>
+    <script>
+        Validator({
+            form: '#form-1',
+            formGroup: '.form-group',
+            formMessage: '.form-message',
+            rules: [
+                Validator.isRequired('#fullname'),
+                Validator.isRequired('#email'),
+                Validator.isEmail('#email', 'Bạn hãy nhập email chính xác!'),
+                Validator.isRequired('#password'),
+                Validator.isPassword('#password'),
+                Validator.isRequired('#password-confirm'),
+                Validator.isPasswordConfirm('#password-confirm', function () {
+                    return document.querySelector('#form-1 #password').value
+                }, 'Giá trị nhập vào không chính xác'),
+                Validator.isRequired('input[name="gender"]'),
+            ],
+            onSubmit: function (data) {
+                console.log(data)
+            }
+        })
+    </script>
+</body>
+
+</html>
