@@ -4,92 +4,93 @@
     box-sizing: border-box;
 }
 html {
+    font-size: 80%;
     background-color: #ccc;
-    font-size: 70%;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 :root {
-    --my-color: #1dbfaf
-}
-.margin {
-    margin: 10px 0;
+    --margin-bottom-h: 10px;
+    --margin-bottom-f: 5px;
+    --my-color: #039688;
 }
 #main {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
+    background-color: #fff;
+    margin: 3% auto;
+    width: 345px;
+    
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, .5);
 }
-.form {
-    align-self: center;
-    background: #fff;
-    width: 350px;
-    padding: 32px 24px;
-    margin: 50px 0;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgb(0 0 0 / 40%);
+#form-1 {
+    padding: 20px;
 }
-.heading h3 {
+#form-1 .heading h3 {
+    font-size: 17px;
     text-align: center;
-    font-weight: 900;
-    font-size: 20px;
+    margin-bottom: var(--margin-bottom-h);
     color: var(--my-color);
 }
-.heading p {
+#form-1 .heading p {
+    font-size: 14px;
     text-align: center;
-    font-weight: lighter;
-    font-size: 12px;
+    opacity: 0.7;
+    margin-bottom: var(--margin-bottom-h);
 }
-.form-group {
+
+#form-1 .form-group {
     display: flex;
     flex-direction: column;
+    margin-bottom: var(--margin-bottom-h);
 }
-.form-group label {
+#form-1 .form-group label {
     font-size: 16px;
     font-weight: 600;
-    margin-bottom: 5px;
+    margin-bottom: var(--margin-bottom-f);
 }
-.form-group .form-control {
+#form-1 .form-group input {
     padding: 5px 8px;
-    border: 2px solid #ccc;
+    outline: none;
     border-radius: 5px;
-    outline: none;
+    border: 1px solid #ccc;
+    margin-bottom: var(--margin-bottom-f);
 }
-.form-control:hover {
-    border-color: var(--my-color);
+#form-1 .form-group .form-message {
+    font-size: 15px;
 }
-.form-group.gender {
-    align-items: center;
-    flex-flow: wrap;
+#form-1 .form-group.invalid input {
+    border-color: red;
 }
-.form-group.gender .input-gender {
-    margin: 0px 4px;
-    padding: 4px;
-    font-size: 16px;
+#form-1 .form-group.invalid .form-message {
+    color: red;
 }
-.form-group.gender input[name="gender"] {
-    margin-right: 4px;
+
+#form-1 .form-group.gender {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 17px;
 }
-.form-submit {
-    margin-top: 10px;
-    border-radius: 4px;
-    border: none;
-    outline: none;
-    font-weight: 600;
-    font-size: 16px;
+#form-1 .form-group.gender label {
+    
+}
+#form-1 .form-group.gender .input-form {
+   
+    margin: 0 5px;
+    width: 17px;
+    height: 17px;
+    
+}
+
+#form-1 .form-submit {
+    padding: 8px;
     width: 100%;
-    padding: 8px 10px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     background: var(--my-color);
     color: #fff;
 }
-.form-submit:hover {
-    cursor: pointer;
+#form-1 .form-submit:hover {
     opacity: 0.8;
-}
-
-.form-group.invalid .form-control {
-    border-color: crimson;
-}
-.form-group.invalid .form-message {
-    font-size: 16px;
-    color: crimson;
+    cursor: pointer;
 }
