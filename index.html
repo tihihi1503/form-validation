@@ -16,102 +16,49 @@
         </div>
         <div class="form-group">
           <label for="fullname">Tên Đầy Đủ</label>
-          <input
-            type="text"
-            name="fullname"
-            class="input-form"
-            id="fullname"
-            placeholder="Vd: Lê Quốc Phú"
-          />
+          <input type="text" name="fullname" class="input-form" id="fullname"
+            rules="required" placeholder="Vd: Lê Quốc Phú" />
           <div class="form-message"></div>
         </div>
         <div class="form-group">
           <label for="email">Email Của Bạn</label>
-          <input
-            type="email"
-            name="email"
-            class="input-form"
-            id="email"
-            placeholder="Vd: acb@gamil.com"
-          />
+          <input type="email" name="email" class="input-form" id="email"
+            rules="required|email" placeholder="Vd: acb@gamil.com" />
           <div class="form-message"></div>
         </div>
         <div class="form-group">
           <label for="password">Mật Khẩu</label>
-          <input
-            type="password"
-            name="password"
-            class="input-form"
-            id="password"
-            placeholder="Mật Khẩu"
-          />
+          <input type="password" name="password" class="input-form"
+            id="password" rules="required|password" placeholder="Mật Khẩu" />
           <div class="form-message"></div>
         </div>
         <div class="form-group">
           <label for="confirm-password">Nhập Lại Mật Khẩu</label>
-          <input
-            type="password"
-            name="confirm-password"
-            class="input-form"
-            id="confirm-password"
-            placeholder="Nhập Lại Mật Khẩu"
-          />
+          <input type="password" name="confirm-password" class="input-form"
+            id="confirm-password" rules="required|confirmPassword"
+            placeholder="Nhập Lại Mật Khẩu" />
           <div class="form-message"></div>
         </div>
         <div class="form-group gender">
           <label for="gender">Giới Tính</label>
-          <input
-            type="radio"
-            name="gender"
-            value="male"
-            class="input-form"
-            id="gender"
-          />
-          Nam
-          <input
-            type="radio"
-            name="gender"
-            value="female"
-            class="input-form"
-            id="gender"
-          />
-          Nữ
-          <input
-            type="radio"
-            name="gender"
-            value="other"
-            class="input-form"
-            id="gender"
-          />
-          Khác
+          <input type="checkbox" name="gender" value="male" class="input-form"
+            id="gender" rules="required" /> Nam
+          <input type="checkbox" name="gender" value="female" class="input-form"
+            id="gender" rules="required" /> Nữ
+          <input type="checkbox" name="gender" value="other" class="input-form"
+            id="gender" rules="required" /> Khác
           <div class="form-message"></div>
         </div>
         <button class="form-submit" type="submit">Đăng ký</button>
       </form>
     </div>
   </body>
-  <script src="./validation.js"></script>
+  <script src="./validation2.js"></script>
   <script>
-    Validation ({
-        form: '#form-1',
-        formGroup: '.form-group',
-        formMessage: '.form-message',
-        rules: [
-            Validation.isRequired('#fullname'),
-            Validation.isRequired('#email'),
-            Validation.isEmail('#email', 'Giá Trị Này Phải Là Email'),
-            Validation.isRequired('#password'),
-            Validation.isPassword('#password'),
-            Validation.isRequired('#confirm-password'),
-            Validation.isConfirmPassword('#confirm-password', 'Giá Trị Nhập Vào Không Chính Xác', function () {
-                return document.querySelector('#form-1 #password').value
-            }),
-            Validation.isRequired('input[name="gender"]')
-        ],
-        onSubmit: function (data) {
-            // call Api
-            console.log(data)
-        }
-    })
+    Validation({
+      form: "#form-1",
+      formGroup: ".form-group",
+      formMessage: ".form-message",
+    });
   </script>
 </html>
